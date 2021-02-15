@@ -9,23 +9,18 @@ def create
         user: @user
       }
     else
-      render json: { 
-        status: 401,
-        errors: ['no such user', 'verify credentials and try again or signup']
-      }
+      return Content(HttpStatusCode.Unauthorized, "No Users Found, Verify Credentials");
     end
   end
 def is_logged_in?
     if logged_in? && current_user
       render json: {
+        
         logged_in: true,
         user: current_user
       }
     else
-      render json: {
-        logged_in: false,
-        message: 'no such user'
-      }
+      return Content(HttpStatusCode.Unauthorized, "No Users Found");
     end
   end
 def destroy

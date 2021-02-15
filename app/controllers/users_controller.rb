@@ -6,10 +6,7 @@ def index
         users: @users
       }
     else
-      render json: {
-        status: 500,
-        errors: ['no users found']
-      }
+       return Content(HttpStatusCode.Unauthorized, "No Users Found");
     end
 end
 def show
@@ -19,10 +16,7 @@ def show
         user: @user
       }
     else
-      render json: {
-        status: 500,
-        errors: ['user not found']
-      }
+      return Content(HttpStatusCode.Unauthorized, "No Users Found");
     end
   end
   
@@ -35,10 +29,7 @@ def show
         user: @user
       }
     else 
-      render json: {
-        status: 500,
-        errors: @user.errors.full_messages
-      }
+      return Content(HttpStatusCode.Unauthorized, "No Users Found");
     end
   end
 private
