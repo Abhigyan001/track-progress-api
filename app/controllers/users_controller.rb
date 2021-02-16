@@ -1,40 +1,43 @@
 class UsersController < ApplicationController
-def index
+  before_action :set_user, only: %i[show update destroy]
+
+  # GET /users
+  def index
     @users = User.all
-    if @users
-      render json: {
-        users: @users
-      }
-    else
-       return Content(HttpStatusCode.Unauthorized, "No Users Found");
-    end
-end
-def show
-    @user = User.find(params[:id])
-   if @user
-      render json: {
-        user: @user
-      }
-    else
-      return Content(HttpStatusCode.Unauthorized, "No Users Found");
-    end
+    json_response(@users)
   end
-  
+
+  # POST /users
   def create
-    @user = User.new(user_params)
-    if @user.save
-      login!
-      render json: {
-        status: :created,
-        user: @user
-      }
-    else 
-      return Content(HttpStatusCode.Unauthorized, "No Users Found");
-    end
+    @user = User.create!(user_params)
+    json_response(@user, :created)
   end
-private
-  
+
+  # GET /users/:id
+  def show
+    json_response(@user)
+  end
+
+  # PUT /users/:id
+  def update
+    @user.update(user_params)
+    head :no_content
+  end
+
+  # DELETE /users/:id
+  def destroy
+    @user.destroy
+    head :no_content
+  end
+
+  private
+
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    # whitelist params
+    params.permit(:name, :sex)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
