@@ -7,7 +7,7 @@ ruby '>=2.6.6'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
-
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Use Puma as the app server
 gem 'puma', '~> 4.3.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -22,7 +22,6 @@ gem 'puma', '~> 4.3.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
@@ -37,7 +36,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails', '~> 3.5'  
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

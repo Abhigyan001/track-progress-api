@@ -12,11 +12,11 @@ RSpec.describe 'Activities API', type: :request do
     before { get "/users/#{user_id}/activities" }
 
     context 'when user exists' do
-      it 'returns status code 200' do
+      it 'resturns status code 200' do
         expect(response).to have_http_status(200)
       end
 
-      it 'returns all user activities' do
+      it 'resturns all user activities' do
         expect(json.size).to eq(20)
       end
     end
@@ -62,7 +62,7 @@ RSpec.describe 'Activities API', type: :request do
 
   # Test suit for POST /users/:user_id/activities
   describe 'POST /users/:user_id/activities' do
-    let(:valid_attributes) { { kind: 'html', amount: 12 } }
+    let(:valid_attributes) { { kind: 'jogging', amount: 12 } }
 
     context 'when request attributes are valid' do
       before { post "/users/#{user_id}/activities", params: valid_attributes }
@@ -87,7 +87,7 @@ RSpec.describe 'Activities API', type: :request do
 
   # Test suite for PUT /users/:user_id/activities/:id
   describe 'PUT /users/:user_id/activities/:id' do
-    let(:valid_attributes) { { kind: 'css', amount: 60 } }
+    let(:valid_attributes) { { kind: 'skipping', amount: 60 } }
 
     before { put "/users/#{user_id}/activities/#{id}", params: valid_attributes }
 
@@ -98,7 +98,7 @@ RSpec.describe 'Activities API', type: :request do
 
       it 'updates the activity' do
         updated_activity = Activity.find(id)
-        expect(updated_activity.kind).to match(/css/)
+        expect(updated_activity.kind).to match(/skipping/)
         expect(updated_activity.amount).to eq(60)
       end
     end

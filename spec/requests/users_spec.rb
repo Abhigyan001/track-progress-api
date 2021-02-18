@@ -44,13 +44,13 @@ RSpec.describe 'Users API', type: :request do
   end
 
   describe 'POST /Users' do
-    let(:valid_attributes) { { name: 'Abhigyan Mahanta', sex: 'male' } }
+    let(:valid_attributes) { { name: 'Abhigyan', sex: 'male', age: 28 } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
 
       it 'creates a user' do
-        expect(json['name']).to eq('Abhigyan Mahanta')
+        expect(json['name']).to eq('Abhigyan')
       end
 
       it 'returns status code 201' do
@@ -59,7 +59,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/users', params: { name: '', sex: 'female' } }
+      before { post '/users', params: { name: '', sex: 'female', age: 32 } }
 
       it 'return status code 422' do
         expect(response).to have_http_status(422)
@@ -72,7 +72,7 @@ RSpec.describe 'Users API', type: :request do
   end
 
   describe 'PUT /users/:id' do
-    let(:valid_attributes) { { name: 'Abhigyan Mahanta' } }
+    let(:valid_attributes) { { name: 'Abhigyan' } }
 
     context 'when the record exists' do
       before { put "/users/#{user_id}", params: valid_attributes }

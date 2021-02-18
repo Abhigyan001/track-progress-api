@@ -2,12 +2,11 @@ FactoryBot.define do
   factory :activity do
     kind do
       %w[
-        html
-        css
-        ruby
-        javascript
-        rubyonrails
-        react
+        jogging
+        pushup
+        skipping
+        squats
+        swimming
       ].sample
     end
     amount { Faker::Number.between(from: 1, to: 10_000) }
