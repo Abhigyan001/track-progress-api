@@ -5,7 +5,11 @@
 ### ✨ [FrontEnd Files](https://github.com/Abhigyan001/track-progress-frontend/)
 
 ## Project Detail
-This app lets users track the daily progress made on their exercises. The user can log in by enter their name and add individual measurements for eack kind of exercise. User can also update the activity as well as remove the activity. User can also update his profile by visiting the 'More' page.
+- This app lets users track the daily progress made on their exercises. 
+- The user can log in by entering their name and add individual measurements for each kind of exercise. 
+- Users can keep track of their exercises by clicking the Records tab.
+- Users can also update the activity as well as remove the activity. 
+- Users can also update their profile by visiting the 'More' page.
 
 ## How To Use
 ![screenshot](app/assets/ss.gif)
