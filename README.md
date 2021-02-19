@@ -31,6 +31,16 @@ This app lets users track the daily progress made on their exercises. The user c
 
 ### Install
 
+* Clone this repo:
+  - Clone with SSH:
+  ```
+    git@github.com:Abhigyan001/track-progress-api.git
+  ```
+  - Clone with HTTPS
+  ```
+    https://github.com/Abhigyan001/track-progress-api.git
+  ```
+
 > Install Necessary Packages.
 ```sh
 bundle install
