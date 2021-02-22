@@ -28,6 +28,7 @@ gem 'rack-cors'
 
 gem 'faker'
 gem 'rubocop'
+gem 'figaro'
 
 group :production do
   gem 'pg'
