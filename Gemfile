@@ -27,8 +27,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 
 gem 'faker'
-gem 'rubocop'
 gem 'figaro'
+gem 'rubocop'
 
 group :production do
   gem 'pg'
