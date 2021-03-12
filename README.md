@@ -26,6 +26,7 @@
 ### Planing Features
 * User Authentication
 * Add more models
+* User could see their friend's progress
 
 ## Project Setup
 
